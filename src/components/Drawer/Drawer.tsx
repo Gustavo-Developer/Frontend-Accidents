@@ -1,20 +1,29 @@
 import * as React from "react";
 
+import {
+  Box,
+  Container,
+  Grid,
+  IconButton,
+  List,
+  Typography,
+} from "@mui/material";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import { ThemeProvider, createTheme, styled } from "@mui/material/styles";
 
 import AvatarUser from "../Avatar";
-import Box from "@mui/material/Box";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
+import IncidentsList from "../IncidentsList";
 import ListItems from "../ListItems";
 import MenuIcon from "@mui/icons-material/Menu";
+import ModalCreateIncident from "../ModalCreateIncident";
+import ModalCreateUser from "../ModalCreateUser";
 import MuiDrawer from "@mui/material/Drawer";
+import SearchInput from "../SearchInput";
 import { Toolbar } from "@mui/material";
-import Typography from "@mui/material/Typography";
+import UsersList from "../UsersList";
 
 const drawerWidth: number = 240;
 
@@ -150,6 +159,36 @@ function AppBarContent() {
           }}
         >
           <Toolbar />
+
+          <Container maxWidth="xl">
+            <Grid container spacing={3} paddingY={3}>
+              <Grid item xs={12} md={12} lg={12}>
+                <SearchInput />
+              </Grid>
+
+              <Grid container paddingY={3} paddingX={3}>
+                <Grid
+                  container
+                  item
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="center"
+                >
+                  <ModalCreateUser />
+                  <Box paddingX={3} paddingY={1} />
+                  <ModalCreateIncident />
+                </Grid>
+              </Grid>
+
+              <Grid item xs={12} md={12} lg={12}>
+                <UsersList />
+              </Grid>
+
+              <Grid item xs={12} md={12} lg={12} paddingY={3}>
+                <IncidentsList />
+              </Grid>
+            </Grid>
+          </Container>
         </Box>
       </Box>
     </ThemeProvider>
