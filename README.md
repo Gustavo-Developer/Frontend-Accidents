@@ -9,11 +9,6 @@
 
 </p>
 
-## :white_check_mark: Requerimentos
-
-- [Flutter]
-- [Android Studio]
-
 ## :checkered_flag: Começando
 
 ```bash
